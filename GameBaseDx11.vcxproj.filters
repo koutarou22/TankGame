@@ -24,6 +24,9 @@
       <UniqueIdentifier>{47a6a3f5-8cfd-436b-8d58-beccd108f3f3}</UniqueIdentifier>
       <Extensions>hlsl</Extensions>
     </Filter>
+    <Filter Include="PLAY">
+      <UniqueIdentifier>{413f8348-dff9-4b7e-a218-125899682ae0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\BoxCollider.cpp">
@@ -80,7 +83,7 @@
     <ClCompile Include="Engine\Transform.cpp">
       <Filter>01Engine\GameObject</Filter>
     </ClCompile>
-    <ClCompile Include="TestScene.cpp" />
+    <ClCompile Include="TitleScene.cpp" />
     <ClCompile Include="Engine\Audio.cpp">
       <Filter>01Engine\ResourceManager</Filter>
     </ClCompile>
@@ -95,6 +98,15 @@
     </ClCompile>
     <ClCompile Include="Engine\VFX.cpp">
       <Filter>01Engine\ResourceManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Ground.cpp">
+      <Filter>PLAY</Filter>
+    </ClCompile>
+    <ClCompile Include="Tank.cpp">
+      <Filter>PLAY</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayScene.cpp">
+      <Filter>PLAY</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -152,7 +164,7 @@
     <ClInclude Include="Engine\Transform.h">
       <Filter>01Engine\GameObject</Filter>
     </ClInclude>
-    <ClInclude Include="TestScene.h" />
+    <ClInclude Include="TitleScene.h" />
     <ClInclude Include="Engine\Audio.h">
       <Filter>01Engine\ResourceManager</Filter>
     </ClInclude>
@@ -168,6 +180,16 @@
     <ClInclude Include="Engine\VFX.h">
       <Filter>01Engine\ResourceManager</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="Ground.h">
+      <Filter>PLAY</Filter>
+    </ClInclude>
+    <ClInclude Include="Tank.h">
+      <Filter>PLAY</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayScene.h">
+      <Filter>PLAY</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Assets\Shader\Simple2D.hlsl">
@@ -182,5 +204,10 @@
     <FxCompile Include="Assets\Shader\BillBoard.hlsl">
       <Filter>02Shader</Filter>
     </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="TankGame.rc">
+      <Filter>リソース ファイル</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>
