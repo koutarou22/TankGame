@@ -5,7 +5,6 @@ class Tank :
 {
 	int hModel_;
 	XMVECTOR front_;
-	
 	float speed_;
 
 public:

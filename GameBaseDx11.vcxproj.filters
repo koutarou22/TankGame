@@ -27,6 +27,9 @@
     <Filter Include="PLAY">
       <UniqueIdentifier>{413f8348-dff9-4b7e-a218-125899682ae0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TITLE">
+      <UniqueIdentifier>{e80e35d5-fed3-42e5-9f63-ea6e74862b5a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\BoxCollider.cpp">
@@ -83,7 +86,6 @@
     <ClCompile Include="Engine\Transform.cpp">
       <Filter>01Engine\GameObject</Filter>
     </ClCompile>
-    <ClCompile Include="TitleScene.cpp" />
     <ClCompile Include="Engine\Audio.cpp">
       <Filter>01Engine\ResourceManager</Filter>
     </ClCompile>
@@ -107,6 +109,9 @@
     </ClCompile>
     <ClCompile Include="PlayScene.cpp">
       <Filter>PLAY</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleScene.cpp">
+      <Filter>TITLE</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -164,7 +169,6 @@
     <ClInclude Include="Engine\Transform.h">
       <Filter>01Engine\GameObject</Filter>
     </ClInclude>
-    <ClInclude Include="TitleScene.h" />
     <ClInclude Include="Engine\Audio.h">
       <Filter>01Engine\ResourceManager</Filter>
     </ClInclude>
@@ -189,6 +193,9 @@
     </ClInclude>
     <ClInclude Include="PlayScene.h">
       <Filter>PLAY</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleScene.h">
+      <Filter>TITLE</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

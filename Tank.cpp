@@ -1,10 +1,11 @@
 #include "Tank.h"
+#include "Ground.h"
 #include"Engine/Model.h"
 #include"Engine/Input.h"
 
 
 Tank::Tank(GameObject* parent)
-	:GameObject(parent,"Tank"),hModel_(-1)
+	:GameObject(parent, "Tank"), hModel_(-1), front_({ 0,0,1,0 }), speed_(0.05f)
 {
 
 }
@@ -13,11 +14,6 @@ void Tank::Initialize()
 {
 	hModel_ = Model::Load("Model\\Tankbody.fbx");
 	assert(hModel_ >= 0);
-
-
-	front_ = XMVectorSet(0, 0, 2, 0);
-
-	speed_ = 0.05f;
 }
 
 void Tank::Update()
@@ -33,11 +29,40 @@ void Tank::Update()
 
 	if (Input::IsKey(DIK_W))
 	{
-	  front_ * speed_;	
+		XMMATRIX rotY = XMMatrixRotationY(XMConvertToRadians(transform_.rotate_.y));
+		XMVECTOR rotVec = XMVector3TransformCoord(front_, rotY);
+
+		XMVECTOR move;
+		move = speed_ * rotVec;
+		XMVECTOR pos = XMLoadFloat3(&(transform_.position_));
+		pos = pos + move;
+		XMStoreFloat3(&(transform_.position_), pos);
+
 	}
 	if (Input::IsKey(DIK_S))
 	{
-	    transform_.position_.z -= 0.01;
+		XMMATRIX rotY = XMMatrixRotationY(XMConvertToRadians(transform_.rotate_.y));
+		XMVECTOR rotVec = XMVector3TransformCoord(front_, rotY);
+
+		XMVECTOR move;
+		move = speed_ * rotVec;
+		XMVECTOR pos = XMLoadFloat3(&(transform_.position_));
+		pos = pos - move;
+		XMStoreFloat3(&(transform_.position_), pos);
+	}
+
+
+	Ground* pGround = (Ground*)FindObject("Ground");
+	int hGmodel = pGround->GetModelHandle();
+	RayCastData data;
+	data.start = transform_.position_;
+	data.start.y = 0;
+	data.dir = XMFLOAT3({ 0,-1,0 });
+	Model::RayCast(hGmodel, &data);
+
+	if (data.hit == true)
+	{
+		transform_.position_.y = -data.dist;
 	}
 
 }
@@ -46,6 +71,8 @@ void Tank::Draw()
 {
 	Model::SetTransform(hModel_, transform_);
 	Model::Draw(hModel_);
+
+	
 }
 
 void Tank::Release()
