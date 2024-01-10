@@ -1,7 +1,9 @@
 #include "Tank.h"
 #include "Ground.h"
+#include "TankHead.h"
 #include"Engine/Model.h"
 #include"Engine/Input.h"
+
 
 
 Tank::Tank(GameObject* parent)
@@ -14,6 +16,8 @@ void Tank::Initialize()
 {
 	hModel_ = Model::Load("Model\\Tankbody.fbx");
 	assert(hModel_ >= 0);
+
+	Instantiate<TankHead>(this);
 }
 
 void Tank::Update()
@@ -72,7 +76,7 @@ void Tank::Draw()
 	Model::SetTransform(hModel_, transform_);
 	Model::Draw(hModel_);
 
-	
+
 }
 
 void Tank::Release()

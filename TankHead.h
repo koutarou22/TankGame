@@ -1,14 +1,18 @@
 #pragma once
 #include "Engine/GameObject.h"
-
-class Ground :
+class TankHead :
     public GameObject
 {
-    int hModel_;
+private:
+
+	int hModel_;
+	XMVECTOR front_;
+	float speed_;
 
 public:
 
-	Ground(GameObject* parent);
+	TankHead(GameObject* parent);
+	~TankHead();
 
 	//‰Šú‰»
 	void Initialize() override;
@@ -21,12 +25,6 @@ public:
 
 	//ŠJ•ú
 	void Release() override;
-
-	/// <summary>
-	/// ƒ‚ƒfƒ‹”Ô†‚ğ•Ô‚·ŠÖ”
-	/// </summary>
-	/// <returns>ƒ‚ƒfƒ‹”Ô†</returns>
-	int GetModelHandle() { return(hModel_); }
-       
+	int GetModelHandle() { return( hModel_ ); }
 };
 

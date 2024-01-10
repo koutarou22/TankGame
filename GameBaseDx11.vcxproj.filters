@@ -113,6 +113,9 @@
     <ClCompile Include="TitleScene.cpp">
       <Filter>TITLE</Filter>
     </ClCompile>
+    <ClCompile Include="TankHead.cpp">
+      <Filter>PLAY</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\BoxCollider.h">
@@ -196,6 +199,9 @@
     </ClInclude>
     <ClInclude Include="TitleScene.h">
       <Filter>TITLE</Filter>
+    </ClInclude>
+    <ClInclude Include="TankHead.h">
+      <Filter>PLAY</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
