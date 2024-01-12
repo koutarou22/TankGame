@@ -1,6 +1,7 @@
 #include "PlayScene.h"
 #include"Ground.h"
 #include"Tank.h"
+#include"Bullet.h"
 //#include"TankHead.h"
 
 
@@ -20,6 +21,7 @@ void PlayScene::Initialize()
 	Instantiate<Ground>(this);
 	Instantiate<Tank>(this);
 	//Instantiate<TankHead>(this);
+	Instantiate<Bullet>(this);
 }
 
 void PlayScene::Update()

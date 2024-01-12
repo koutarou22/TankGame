@@ -75,8 +75,6 @@ void Tank::Draw()
 {
 	Model::SetTransform(hModel_, transform_);
 	Model::Draw(hModel_);
-
-
 }
 
 void Tank::Release()
