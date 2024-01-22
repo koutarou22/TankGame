@@ -5,6 +5,10 @@
 #include"Enemy.h"
 //#include"TankHead.h"
 
+namespace
+{
+	const int ENEMY_NUM{ 30 };
+}
 
 
 PlayScene::PlayScene(GameObject* parent)
@@ -25,11 +29,12 @@ void PlayScene::Initialize()
 	//Instantiate<Bullet>(this);
 	/*Instantiate<Enemy>(this);*/
 
-		Instantiate<Enemy>(this) ->SetPosition(5, 0, 21);
-		Instantiate<Enemy>(this)->SetPosition(-5, 0, 17);
-		Instantiate<Enemy>(this)->SetPosition(9, 0, 13);
-		Instantiate<Enemy>(this)->SetPosition(0, 0, 9);
-		Instantiate<Enemy>(this)->SetPosition(-11, 0, 9);
+	 int enmyNum = ENEMY_NUM;
+
+	 for (int i = 0; i < enmyNum; i++)
+		 Instantiate<Enemy>(this);
+	
+	 pText
 }
 
 void PlayScene::Update()

@@ -7,6 +7,8 @@ class Tank :
 	XMVECTOR front_;
 	float speed_;
 
+	int camState_;
+
 public:
 
 	Tank(GameObject* parent);
