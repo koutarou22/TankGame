@@ -3,6 +3,7 @@
 #include"Tank.h"
 #include"Bullet.h"
 #include"Enemy.h"
+#include"HUD.h"
 //#include"TankHead.h"
 
 namespace
@@ -33,8 +34,11 @@ void PlayScene::Initialize()
 
 	 for (int i = 0; i < enmyNum; i++)
 		 Instantiate<Enemy>(this);
-	
-	 pText
+
+	/* pText = new Text;
+	 pText->Initialize();*/
+
+	 Instantiate<HUD>(this);
 }
 
 void PlayScene::Update()

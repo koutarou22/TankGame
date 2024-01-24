@@ -151,6 +151,7 @@
     <ClCompile Include="Engine\Texture.cpp" />
     <ClCompile Include="Engine\Transform.cpp" />
     <ClCompile Include="Ground.cpp" />
+    <ClCompile Include="HUD.cpp" />
     <ClCompile Include="PlayScene.cpp" />
     <ClCompile Include="Tank.cpp" />
     <ClCompile Include="TankHead.cpp" />
@@ -183,6 +184,7 @@
     <ClInclude Include="Engine\Texture.h" />
     <ClInclude Include="Engine\Transform.h" />
     <ClInclude Include="Ground.h" />
+    <ClInclude Include="HUD.h" />
     <ClInclude Include="PlayScene.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Tank.h" />

@@ -1,16 +1,23 @@
 #pragma once
 #include "Engine/GameObject.h"
-class PlayScene :
+#include<vector>
+#include <string>
+
+using std::string;
+
+class HUD :
     public GameObject
 {
+	string CountructEnemyNumberString();
 public:
 
-	
-	int hModel_;
+	HUD(GameObject* parent);
+	int hHUD_;
+	int hNumber_;
 
-	PlayScene(GameObject* parent);
+	Transform tHud_;
 
-	~PlayScene();
+	std::vector<Transform> tNumbers_;
 
 	//‰Šú‰»
 	void Initialize() override;
