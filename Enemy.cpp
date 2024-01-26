@@ -3,6 +3,7 @@
 #include "Engine/Model.h"
 #include"Engine/Collider.h"
 
+
 Enemy::Enemy(GameObject* parent)
 	:GameObject(parent,"Enemy"),hModel_(-1)
 {
@@ -11,7 +12,9 @@ Enemy::Enemy(GameObject* parent)
 
 void Enemy::Initialize()
 {
-	hModel_ = Model::Load("Model\\Re_Enemy.fbx");
+	
+
+	hModel_ = Model::Load("Model\\kinoko.fbx");
 	assert(hModel_ >= 0);
 
 	Model::SetAnimFrame(hModel_, 0, 60, 1);
@@ -39,6 +42,8 @@ void Enemy::Initialize()
 	{
 		transform_.position_.y = -data.dist + 0.5;
 	}
+
+	
 }
 
 void Enemy::Update()

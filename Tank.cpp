@@ -58,7 +58,7 @@ void Tank::Update()
 		pos = pos + move;
 		XMStoreFloat3(&(transform_.position_), pos);*/
 
-		dir = 1.0;
+		dir += 2.0;
 
 	}
 	if (Input::IsKey(DIK_S))
@@ -66,7 +66,7 @@ void Tank::Update()
 	/*	XMMATRIX rotY = XMMatrixRotationY(XMConvertToRadians(transform_.rotate_.y));
 		XMVECTOR rotVec = XMVector3TransformCoord(front_, rotY);*/
 
-		dir = -1.0;
+		dir -= 2.0;
 	
 	}
 
@@ -101,6 +101,7 @@ void Tank::Update()
 
 	switch (camState_)
 	{
+
 	 case CAM_TYPE::FIXED_TYPE:
 	 {
 		 Camera::SetPosition(XMFLOAT3(0, 25, -20));
@@ -142,7 +143,6 @@ void Tank::Update()
 	default:
 		break;
 	}
-
 
 }
 

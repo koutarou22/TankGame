@@ -22,11 +22,11 @@ void TankHead::Update()
 {
 	if (Input::IsKey(DIK_LEFT))
 	{
-		this->transform_.rotate_.y -= 2.0;
+		this->transform_.rotate_.y -= 4.0;
 	}
 	if (Input::IsKey(DIK_RIGHT))
 	{
-		this->transform_.rotate_.y += 2.0;
+		this->transform_.rotate_.y += 4.0;
 	}
 	if (Input::IsKeyDown(DIK_SPACE))
 	{
