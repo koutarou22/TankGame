@@ -11,7 +11,7 @@ Enemy::Enemy(GameObject* parent)
 
 void Enemy::Initialize()
 {
-	hModel_ = Model::Load("Model\\Enemy.fbx");
+	hModel_ = Model::Load("Model\\Re_Enemy.fbx");
 	assert(hModel_ >= 0);
 
 	Model::SetAnimFrame(hModel_, 0, 60, 1);
