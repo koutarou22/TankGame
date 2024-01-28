@@ -27,6 +27,8 @@ public:
 	/// </summary>
 	/// <returns>ƒ‚ƒfƒ‹”Ô†</returns>
 	int GetModelHandle() { return(hModel_); }
+
+	void EnemyCount();
        
 };
 

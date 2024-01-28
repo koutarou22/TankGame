@@ -8,12 +8,14 @@ using std::string;
 class HUD :
     public GameObject
 {
-	string CountructEnemyNumberString();
+	
 public:
 
 	HUD(GameObject* parent);
 	int hHUD_;
 	int hNumber_;
+
+	int EnemyCount_;
 
 	Transform tHud_;
 
@@ -30,5 +32,8 @@ public:
 
 	//ŠJ•ú
 	void Release() override;
+
+	void EnemyDeleteCount();
+	void NumberUpdete();
 };
 

@@ -30,6 +30,9 @@
     <Filter Include="TITLE">
       <UniqueIdentifier>{e80e35d5-fed3-42e5-9f63-ea6e74862b5a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="CLEAR">
+      <UniqueIdentifier>{8a6e2bca-d21b-4066-bab0-9d261f51b582}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\BoxCollider.cpp">
@@ -124,6 +127,9 @@
     </ClCompile>
     <ClCompile Include="HUD.cpp">
       <Filter>PLAY</Filter>
+    </ClCompile>
+    <ClCompile Include="ClearScene.cpp">
+      <Filter>CLEAR</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -220,6 +226,9 @@
     </ClInclude>
     <ClInclude Include="HUD.h">
       <Filter>PLAY</Filter>
+    </ClInclude>
+    <ClInclude Include="ClearScene.h">
+      <Filter>CLEAR</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

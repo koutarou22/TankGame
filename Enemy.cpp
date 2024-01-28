@@ -2,6 +2,7 @@
 #include "Ground.h"
 #include "Engine/Model.h"
 #include"Engine/Collider.h"
+#include "HUD.h"
 
 
 Enemy::Enemy(GameObject* parent)
@@ -84,10 +85,16 @@ void Enemy::Release()
 {
 }
 
-void Enemy::OnCollision(GameObject* pTarget)
-{
+void Enemy::OnCollision(GameObject* pTarget) {
 	if (pTarget->GetObjectName() == "Bullet") {
 		this->KillMe();
 		pTarget->KillMe();
+		
+
+		HUD* hud = (HUD*)FindObject("HUD");
+		if (hud != nullptr) {
+			hud->EnemyDeleteCount();
+		}
 	}
 }
+

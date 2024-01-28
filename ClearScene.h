@@ -2,21 +2,15 @@
 #include "Engine/GameObject.h"
 
 
-const int ENEMY_NUM = 5;
-
-
-class PlayScene :
+class ClearScene :
     public GameObject
 {
+
+	int hImage_;
 public:
-
-	
-	
-	int hModel_;
-
-	PlayScene(GameObject* parent);
-
-	~PlayScene();
+	//コンストラクタ
+	//引数：parent  親オブジェクト（SceneManager）
+	ClearScene(GameObject* parent);
 
 	//初期化
 	void Initialize() override;

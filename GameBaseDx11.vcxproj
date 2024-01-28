@@ -71,8 +71,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Program Files\Autodesk\FBX\FBX SDK\2020.0.1\include;C:\Program Files\Autodesk\FBX\FBX SDK\2020.0\include;C:\Program Files\Autodesk\FBX\FBX SDK\2019.5\include;$(IncludePath);C:\Program Files\Autodesk\FBX\FBX SDK\2020.3.2\include;D:\230011\FBX\FBX SDK\2020.0.1\include</IncludePath>
-    <LibraryPath>C:\Program Files\Autodesk\FBX\FBX SDK\2020.0.1\lib\vs2017\x64\debug;C:\Program Files\Autodesk\FBX\FBX SDK\2020.0\lib\vs2017\x64\debug;C:\Program Files\Autodesk\FBX\FBX SDK\2019.5\lib\vs2017\x64\debug;$(LibraryPath);C:\Program Files\Autodesk\FBX\FBX SDK\2020.3.2\lib\vs2019\x64\debug;C:\Program Files\Autodesk\FBX\FBX SDK\2020.3.2\lib\vs2019\x64\debug;D:\230011\FBX\FBX SDK\2020.0.1\lib\vs2017\x64\debug</LibraryPath>
+    <IncludePath>C:\Program Files\Autodesk\FBX\FBX SDK\2020.0.1\include;C:\Program Files\Autodesk\FBX\FBX SDK\2020.0\include;C:\Program Files\Autodesk\FBX\FBX SDK\2019.5\include;$(IncludePath);C:\Program Files\Autodesk\FBX\FBX SDK\2020.3.2\include;D:\230011\FBX\FBX SDK\2020.0.1\include;C:\Users\ko123\Downloads\2020.3.4\include</IncludePath>
+    <LibraryPath>C:\Program Files\Autodesk\FBX\FBX SDK\2020.0.1\lib\vs2017\x64\debug;C:\Program Files\Autodesk\FBX\FBX SDK\2020.0\lib\vs2017\x64\debug;C:\Program Files\Autodesk\FBX\FBX SDK\2019.5\lib\vs2017\x64\debug;$(LibraryPath);C:\Program Files\Autodesk\FBX\FBX SDK\2020.3.2\lib\vs2019\x64\debug;D:\230011\FBX\FBX SDK\2020.0.1\lib\vs2017\x64\debug;C:\Users\ko123\Downloads\2020.3.4\lib\vs2022\x64\debug</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>C:\Program Files\Autodesk\FBX\FBX SDK\2020.0.1\include;C:\Program Files\Autodesk\FBX\FBX SDK\2019.5\include;C:\Program Files\Autodesk\FBX\FBX SDK\2020.0\include;$(IncludePath);C:\Program Files\Autodesk\FBX\FBX SDK\2020.3.2\include;D:\230011\FBX\FBX SDK\2020.0.1\include</IncludePath>
@@ -126,6 +126,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Bullet.cpp" />
+    <ClCompile Include="ClearScene.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Engine\Audio.cpp" />
     <ClCompile Include="Engine\BillBoard.cpp" />
@@ -159,6 +160,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Bullet.h" />
+    <ClInclude Include="ClearScene.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Engine\Audio.h" />
     <ClInclude Include="Engine\BillBoard.h" />

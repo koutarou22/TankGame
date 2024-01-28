@@ -1,9 +1,10 @@
 #include "TitleScene.h"
 #include "Engine/SceneManager.h"
 #include "Engine/Input.h"
-//コンストラクタ
-TitleScene::TitleScene(GameObject * parent)
-	: GameObject(parent, "TitleScene")
+#include"Engine/Image.h"
+
+TitleScene::TitleScene(GameObject* parent)
+	: GameObject(parent, "TitleScene"), hImage_(-1)
 {
 }
 
@@ -20,11 +21,15 @@ void TitleScene::Update()
 	  pSceneManager->ChangeScene(SCENE_ID_PLAY);
 	}
 	
+	hImage_ = Image::Load("Title.jpg");
+	assert(hImage_ >= 0);
 }
 
 //描画
 void TitleScene::Draw()
 {
+	Image::SetTransform(hImage_, transform_);
+	Image::Draw(hImage_);
 }
 
 //開放

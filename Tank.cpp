@@ -31,53 +31,39 @@ void Tank::Initialize()
 
 void Tank::Update()
 {
-	XMMATRIX rotY = XMMatrixIdentity();
-	XMVECTOR move{0,0,0,0};
-	XMVECTOR rotVec{0,0,0,0};
-
+	XMMATRIX rotY = XMMatrixIdentity(); 
+	XMVECTOR move{ 0,0,0,0 };
+	XMVECTOR rotVec{ 0,0,0,0 };
 	float dir = 0;
-
-
-	if (Input::IsKey(DIK_D))
-	{
-		transform_.rotate_.y += 1.0f;
-	}
-	if (Input::IsKey(DIK_A))
-	{
-		transform_.rotate_.y -= 1.0f;
-	}
-
 	if (Input::IsKey(DIK_W))
 	{
-	/* rotY = XMMatrixRotationY(XMConvertToRadians(transform_.rotate_.y));
-		 rotVec = XMVector3TransformCoord(front_, rotY);
-
-		XMVECTOR move;
-		move = speed_ * rotVec;
-		XMVECTOR pos = XMLoadFloat3(&(transform_.position_));
-		pos = pos + move;
-		XMStoreFloat3(&(transform_.position_), pos);*/
-
-		dir += 2.0;
+		dir = 1.0;
 
 	}
 	if (Input::IsKey(DIK_S))
 	{
-	/*	XMMATRIX rotY = XMMatrixRotationY(XMConvertToRadians(transform_.rotate_.y));
-		XMVECTOR rotVec = XMVector3TransformCoord(front_, rotY);*/
-
-		dir -= 2.0;
-	
+		dir = -1.0;
 	}
 
-	rotY = XMMatrixRotationY(XMConvertToRadians(transform_.rotate_.y));
-	rotVec = XMVector3TransformCoord(front_, rotY);
+	if (Input::IsKey(DIK_A))
+	{
+		this->transform_.rotate_.y -= 1;
+	}
+	if (Input::IsKey(DIK_D))
+	{
+		this->transform_.rotate_.y += 1;
+	}
 
+	
+	rotY = XMMatrixRotationY(XMConvertToRadians(transform_.rotate_.y));
+
+	rotVec = XMVector3TransformCoord(front_, rotY);
 	move = speed_ * rotVec;
 	XMVECTOR pos = XMLoadFloat3(&(transform_.position_));
-	pos = pos + dir * move;
+	pos = pos + dir * move; 
 	XMStoreFloat3(&(transform_.position_), pos);
 
+	
 	Ground* pGround = (Ground*)FindObject("Ground");
 	int hGmodel = pGround->GetModelHandle();
 
@@ -95,55 +81,51 @@ void Tank::Update()
 	if (Input::IsKeyDown(DIK_Z))
 	{
 		camState_++;
+		//camState_ = (++camState_) % (CAM_TYPE::MAX);
 		if (camState_ == CAM_TYPE::MAX_TYPE)
-			camState_ == CAM_TYPE::FIXED_TYPE;
+			camState_ = CAM_TYPE::FIXED_TYPE;
 	}
 
 	switch (camState_)
 	{
+	case CAM_TYPE::FIXED_TYPE:
+	{
+		Camera::SetPosition(XMFLOAT3(0, 20, -20));
+		Camera::SetTarget(XMFLOAT3(0, 0, 0));
+		break;
+	}
+	case CAM_TYPE::TPS_NOROT_TYPE:
+	{
+		XMFLOAT3 camPos = transform_.position_;
+		camPos.y = transform_.position_.y + 15.0f;
+		camPos.z = transform_.position_.z - 10.0f;
+		Camera::SetPosition(camPos);
+		Camera::SetTarget(transform_.position_);
+		break;
+	}
+	case CAM_TYPE::TPS_TYPE:
+	{
+		Camera::SetTarget(transform_.position_);
+		XMVECTOR vEye{ 0, 5, -10, 0 };
+		vEye = XMVector3TransformCoord(vEye, rotY);
+		XMFLOAT3 camPos;
+		XMStoreFloat3(&camPos, pos + vEye);
+		Camera::SetPosition(camPos);
+		break;
+	}
+	case CAM_TYPE::FPS_TYPE:
+	{
+		Camera::SetPosition(transform_.position_);
+		XMFLOAT3 camTarget;
 
-	 case CAM_TYPE::FIXED_TYPE:
-	 {
-		 Camera::SetPosition(XMFLOAT3(0, 25, -20));
-		 Camera::SetTarget(XMFLOAT3(0, 0, 0));
-		 break;
-	 } 
-	 
-	 case CAM_TYPE::TPS_NOROT_TYPE:
-	 {
-		 XMFLOAT3 camPos = transform_.position_;
-		 camPos.y = transform_.position_.y + 15.0f;
-		 camPos.z = transform_.position_.z - 10.0f;
-		 Camera::SetPosition(camPos);
-		 Camera::SetTarget(transform_.position_);
-		 break;
-
-	 }
-	 case CAM_TYPE::TPS_TYPE:
-	 {
-		 Camera::SetTarget(transform_.position_);
-		 XMVECTOR vEve{ 0,5,-10,0 };
-		 vEve = XMVector3TransformCoord(vEve, rotY);
-		 XMFLOAT3 camPos;
-		 XMStoreFloat3(&camPos, pos + vEve);
-		 Camera::SetPosition(camPos);
-		 
-		 break;
-	 }
-	
-	 case CAM_TYPE::FPS_TYPE:
-	 {
-		 Camera::SetPosition(transform_.position_);
-		 XMFLOAT3 camTarget;
-
-		 XMStoreFloat3(&camTarget, pos + move);
-		 Camera::SetTarget(camTarget);
-		 break;
-	 }
+		//XMVECTOR vMove = XMLoadFloat3(&());
+		XMStoreFloat3(&camTarget, pos + move);
+		Camera::SetTarget(camTarget);
+		break;
+	}
 	default:
 		break;
 	}
-
 }
 
 void Tank::Draw()
